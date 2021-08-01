@@ -1,0 +1,65 @@
+{
+  "name": "qqtools-mirai",
+  "description": "QQ群工具，配合mirai使用。",
+  "license": "AGPL-3.0",
+  "scripts": {
+    "eslint": "eslint ./ --fix",
+    "eslint:no-fix": "eslint ./",
+    "lerna:install": "lerna bootstrap --force-local",
+    "update-version": "milktea-esm update",
+    "update-version:dev": "milktea-esm update --__DEV__",
+    "build:png": "ffmpeg -i statics/titleBarIcon512.png -vf scale=128:128 packages/app/titleBarIcon.png",
+    "build:icon": "ffmpeg -i statics/titleBarIcon512.png -vf scale=256:256 statics/titleBarIcon.ico",
+    "build:icns": "milktea-esm image2icns --imageEntry=\"statics/titleBarIcon512.png\" --imageOutput=\"./statics/titleBarIcon.icns\" --size=512",
+    "build:linuxPng": "ffmpeg -i statics/titleBarIcon512.png -vf scale=128:128 statics/titleBarIcon_linux.png",
+    "prepare": "husky install"
+  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "cross-zip": "^4.0.0",
+    "electron": "^14.0.0-beta.14",
+    "electron-builder": "^22.11.9",
+    "fs-extra": "^10.0.0",
+    "glob": "^7.1.7"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.14.7",
+    "@sweet-milktea/milktea-cli": "^3.1.1",
+    "@sweet-milktea/util-tools": "^3.1.0",
+    "@types/cron": "^1",
+    "@types/fs-extra": "^9",
+    "@types/js-yaml": "^4",
+    "@types/lodash-es": "^4",
+    "@types/node": "^16",
+    "@types/react": "^17",
+    "@types/react-dom": "^17",
+    "@types/react-redux": "^7",
+    "@typescript-eslint/eslint-plugin": "^4.28.4",
+    "@typescript-eslint/parser": "^4.28.4",
+    "commitizen": "^4.2.4",
+    "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.31.0",
+    "eslint-import-resolver-node": "^0.3.4",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-react": "^7.24.0",
+    "husky": "^7.0.1",
+    "lerna": "^4.0.0",
+    "lint-staged": "^11.0.1",
+    "rimraf": "^3.0.2",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.5"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,mjs,cjs,ts,tsx}": "eslint"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
