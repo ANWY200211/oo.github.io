@@ -1,0 +1,16 @@
+- var imports = require('./imports');
+
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+  body
+    div.app#app
+    script(type='text/javascript' src=require('./appInit').default)
+    script(type='text/javascript' src=require('jquery/dist/jquery.min').default)
+    script(type='text/javascript' src=require('./components/coolQ/NIM_Web_SDK_v7.7.0').default)
+    script(type='text/javascript' src=require('./wasm_exec').default)
+
+    if htmlWebpackPlugin.options.mode === 'development'
+      script(type='text/javascript' src=imports.dll)
