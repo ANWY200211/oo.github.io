@@ -1,0 +1,97 @@
+{
+  "name": "qqtools2",
+  "version": "3.3.1-rc.1",
+  "description": "QQ群工具，配合酷Q使用。",
+  "license": "GNU General Public License v3.0",
+  "scripts": {
+    "dll": "milktea dll",
+    "start": "npm run clean:build && cross-env NODE_ENV=development milktea start",
+    "build": "npm run clean:build && cross-env NODE_ENV=production milktea build",
+    "clean:build": "rimraf ./dist",
+    "npm:i": "npm install --production",
+    "yarn:i": "yarn install --production=true --pure-lockfile",
+    "clean": "node-modules-clean --ext \".opts|.map|.ts|.yml|.png|.dot|.jpg\" --file \"test.js\"",
+    "eslint": "eslint ./src --fix",
+    "case-check": "case-check --dir=\"./src\" --css",
+    "update": "milktea update"
+  },
+  "main": "./dist/index.html",
+  "nodejs": true,
+  "window": {
+    "title": "QQ群工具-酷Q（v3.3.1-rc.1）",
+    "position": "center",
+    "toolbar": true,
+    "frame": true,
+    "width": 1200,
+    "height": 600,
+    "fullscreen": false,
+    "show_in_taskbar": true,
+    "icon": "./titleBarIcon.png"
+  },
+  "author": {
+    "name": "段昊辰",
+    "email": "duanhaochen@126.com",
+    "url": "https://github.com/duan602728596"
+  },
+  "dependencies": {
+    "md5.js": "^1.3.5",
+    "mysql": "^2.18.1",
+    "node-schedule": "^1.3.2",
+    "nunjucks": "^3.2.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "@48/time-string-parse": "github:duan602728596/time-string-parse",
+    "@sweet-milktea/milktea": "^0.15.4",
+    "@sweet-milktea/milktea-cli": "^0.14.0",
+    "@sweet-milktea/util-tools": "^0.15.0",
+    "antd": "^3.26.17",
+    "babel-eslint": "^11.0.0-beta.2",
+    "babel-plugin-import": "^1.13.0",
+    "classnames": "^2.2.6",
+    "commitizen": "^4.1.2",
+    "core-js": "^3.6.5",
+    "cross-env": "^7.0.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "es-module-path-case-check": "^1.5.0",
+    "eslint": "^7.1.0",
+    "eslint-plugin-react": "^7.20.0",
+    "husky": "^4.2.5",
+    "immutable": "^4.0.0-rc.12",
+    "indexeddb-tools": "^3.0.0",
+    "indexeddb-tools-redux": "^3.0.0",
+    "jquery": "^3.5.1",
+    "lint-staged": "^10.2.7",
+    "lodash-es": "^4.17.15",
+    "moment": "^2.26.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-actions": "^2.6.5",
+    "redux-immutable": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
+    "rimraf": "^3.0.2",
+    "worker-loader": "^2.0.0"
+  },
+  "peerDependencies": {
+    "node-modules-clean": "^0.1.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx}": "eslint"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./app/node_modules/cz-conventional-changelog"
+    }
+  }
+}
